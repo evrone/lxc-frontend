@@ -1,0 +1,7 @@
+<form action="/containers/<%= @container.name %>/destroy" method="POST">
+  <legend>Destroy <%= @container.name %></legend>
+  <label>Enter <%= session[:secure_destroy_key] %> to this text field:</label>
+  <input type="text" name="secure_destroy_key" value="">
+  <span class="help-block"><strong>Be careful!</strong></span>
+  <button type="submit" class="btn">I'm sure that I want to destroy this container</button>
+</form>

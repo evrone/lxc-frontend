@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LXC Frontend</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+  </head>
+  <body style="padding-top: 50px;">
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="#">
+              LXC Frontend
+            </a>
+            <ul class="nav">
+              <li><a href="/">Home</a></li>
+            </ul>
+        </div>
+      </div>
+    </div>
+
+  <div class="container">
+    <% if flash[:notice] %>
+      <div class="alert"><%= flash[:notice] %></div>
+    <% end %>
+    <%= yield %>
+  </div>
+  </body>
+</html>

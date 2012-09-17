@@ -1,0 +1,42 @@
+<table class="table table-condensed">
+  <tr>
+    <th>Name</th>
+    <th>IP</th>
+    <th>State</th>
+    <th>Memory</th>
+    <th></th>
+  </tr>
+  <% @containers.each do |c| %>
+    <tr>
+      <td><%= c.name %></td>
+      <td><a href="http://<%= lxc_ip_for(c.name) %>" target="_blank"><%= lxc_ip_for(c.name) %></a></td>
+      <td><%= c.status[:state].capitalize %>, PID: <%= c.status[:pid] %></td>
+      <td>
+        <% if c.running? %>
+          <%= bytes_in_megabytes c.memory_usage %> MB
+        <% else %>
+          &mdash;
+        <% end %>
+        /
+        <% if c.running? %>
+          <%= bytes_in_megabytes c.memory_limit %> MB
+        <% else %>
+          &mdash;
+        <% end %>
+      </td>
+      <td>
+        <% if c.running? %>
+          <a class="btn btn-danger" href="/containers/<%= c.name %>/stop">Stop</a>
+        <% else %>
+          <a class="btn btn-info" href="/containers/<%= c.name %>/start">Start</a>
+        <% end %>
+        <div class="btn-group">
+          <a class="btn" href="/containers/<%= c.name %>/config">Config</a>
+          <a class="btn" href="/containers/<%= c.name %>/interfaces">Interfaces</a>
+        </div>
+        <a class="btn btn-danger" href="/containers/<%= c.name %>/secure_destroy">Destroy</a>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<p>LXC version: <%= LXC.version %></p>

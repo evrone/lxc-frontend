@@ -1,0 +1,6 @@
+<form action="/containers/<%= @container.name %>/update_interfaces" method="POST">
+  <legend><%= @container.name %> interfaces</legend>
+  <textarea name="interfaces" style="width: 100%; height: 400px;"><%= @config_data %></textarea>
+  <span class="help-block"><strong>Be careful!</strong></span>
+  <button type="submit" class="btn">Save</button>
+</form>
