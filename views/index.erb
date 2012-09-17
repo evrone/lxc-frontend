@@ -26,15 +26,13 @@
       </td>
       <td>
         <% if c.running? %>
-          <a class="btn btn-danger" href="/containers/<%= c.name %>/stop">Stop</a>
+          <a class="btn btn-danger btn-small" href="/containers/<%= c.name %>/stop">Stop</a>
         <% else %>
-          <a class="btn btn-info" href="/containers/<%= c.name %>/start">Start</a>
+          <a class="btn btn-info btn-small" href="/containers/<%= c.name %>/start">Start</a>
         <% end %>
-        <div class="btn-group">
-          <a class="btn" href="/containers/<%= c.name %>/config">Config</a>
-          <a class="btn" href="/containers/<%= c.name %>/interfaces">Interfaces</a>
-        </div>
-        <a class="btn btn-danger" href="/containers/<%= c.name %>/secure_destroy">Destroy</a>
+        <a class="btn btn-small" href="/containers/<%= c.name %>/config">Config</a>
+        <a class="btn btn-small" href="/containers/<%= c.name %>/interfaces">Interfaces</a>
+        <a class="btn btn-danger btn-small" href="/containers/<%= c.name %>/secure_destroy">Destroy</a>
       </td>
     </tr>
   <% end %>
